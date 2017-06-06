@@ -1,10 +1,12 @@
 package main.java;
 
 import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 
 /**
@@ -25,7 +27,10 @@ public class AudioPlayer implements Runnable{
     {
         try
         {
+            //BufferedOutputStream out = new BufferedOutputStream();
+
             bufferedInputStream = new BufferedInputStream(new URL("http://icecast.omroep.nl/" + audioStream).openStream());
+
             advancedPlayer = new AdvancedPlayer(bufferedInputStream);
             advancedPlayer.play();
         }

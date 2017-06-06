@@ -1,22 +1,12 @@
 package main.java;
-
-
-
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
-import javazoom.jl.player.advanced.AdvancedPlayer;
 import org.json.simple.JSONArray;
-import javax.sound.sampled.AudioInputStream;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.net.URL;
 
 
 /**
@@ -25,6 +15,12 @@ import java.net.URL;
 
 @Path("/")
 public class Radio{
+    AudioServer server = new AudioServer();
+
+    public Radio() throws IOException {
+
+    }
+
     @Path("/radio/stations")
     @GET
     public Response getStations()
@@ -43,25 +39,23 @@ public class Radio{
 
     @return Response
     */
-    @Path("/radio/play/{streamURL}")
+    @Path("/radio/play/")
     @GET
-    public Response playRadio(@PathParam("streamURL") String streamURL)
-    {
-        Thread t = new Thread(new AudioPlayer(streamURL));
-        t.start();
+    public void playRadio() throws IOException {
+        server.Start();
+        //Thread t = new Thread(new AudioPlayer(streamURL));
+        //t.start();
 
-        return Response.ok().build();
+        //return Response.ok().build();
     }
+
 
     /*
 
     */
     @Path("/radio/stop")
     @GET
-    public Response stopRadio()
-    {
-        //audioPlayer.close();
-
-        return Response.ok().build();
+    public void stopRadio() throws IOException {
+        server.Stop();
     }
 }
