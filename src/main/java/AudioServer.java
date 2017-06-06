@@ -12,7 +12,7 @@ import java.net.URL;
  * Created by rickb on 30-5-2017.
  */
 public class AudioServer {
-    public final static int SOCKET_PORT = 8083;
+    public final static int SOCKET_PORT = 8093;
     BufferedInputStream bis = new BufferedInputStream(new URL("http://icecast.omroep.nl/radio2-bb-mp3").openStream());
 
     OutputStream os = null;

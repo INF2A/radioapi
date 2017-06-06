@@ -10,7 +10,7 @@ import java.net.URL;
 
 class AudioClient {
 
-    public final static int SOCKET_PORT = 8083;
+    public final static int SOCKET_PORT = 8093;
     public final static String SERVER = "127.0.0.1";
     public static AdvancedPlayer advancedPlayer;
     public static Socket sock = null;
