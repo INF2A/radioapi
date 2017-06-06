@@ -4,6 +4,7 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
 import java.io.*;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
@@ -13,6 +14,11 @@ import java.net.URL;
  */
 public class AudioServer {
     public final static int SOCKET_PORT = 8093;
+    public InetAddress addr = InetAddress.getByName("192.168.1.1");
+    //public InetAddress addr = InetAddress.getByName("127.0.0.1");
+
+    // and now you can pass it to your socket-constructor
+
     BufferedInputStream bis = new BufferedInputStream(new URL("http://icecast.omroep.nl/radio2-bb-mp3").openStream());
 
     OutputStream os = null;
@@ -24,7 +30,8 @@ public class AudioServer {
     }
     public void Start() throws IOException {
         try {
-            servsock = new ServerSocket(SOCKET_PORT);
+            //servsock = new ServerSocket(SOCKET_PORT);
+            servsock = new ServerSocket(SOCKET_PORT, 50, addr);
             while (true) {
                 System.out.println("Waiting...");
                 try {
