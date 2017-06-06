@@ -14,7 +14,7 @@ import java.net.URL;
  */
 public class AudioServer {
     public final static int SOCKET_PORT = 8093;
-    public InetAddress addr = InetAddress.getByName("192.168.1.1");
+    public InetAddress addr = InetAddress.getByName("172.17.0.3");
     //public InetAddress addr = InetAddress.getByName("127.0.0.1");
 
     // and now you can pass it to your socket-constructor
