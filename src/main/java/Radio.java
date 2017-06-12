@@ -1,12 +1,10 @@
 package main.java;
-import javazoom.jl.decoder.JavaLayerException;
-import org.json.simple.JSONArray;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.HashMap;
 
 
 /**
@@ -15,7 +13,7 @@ import java.io.IOException;
 
 @Path("/")
 public class Radio{
-    AudioServer server = new AudioServer();
+
 
     public Radio() throws IOException {
 
@@ -23,39 +21,43 @@ public class Radio{
 
     @Path("/radio/stations")
     @GET
-    public Response getStations()
+    public String getStations()
     {
-        JSONArray jsonArray = JsonParser.parseURL("http://api.dirble.com/v2/stations?token=eee714d4777dac23143a6ffac3");
-        return Response.ok(jsonArray.toJSONString()).build();
+        //TODO return list of stations in json format(wens)
+        return "";
     }
+    /**
+     Streams audio based on given channel.
+     @param channel channel to stream
 
-    /*
-    Streams radio based on given stream URL.
+     */
 
-    http://icecast.omroep.nl/3fm-bb-mp3
-    http://icecast.omroep.nl/radio2-bb-mp3
-
-    @param streamURL
-
-    @return Response
-    */
-    @Path("/radio/play/")
+    @Path("/radio/play/{channel}")
     @GET
-    public void playRadio() throws IOException {
-        server.Start();
-        //Thread t = new Thread(new AudioPlayer(streamURL));
-        //t.start();
-
-        //return Response.ok().build();
+    public String playRadioChannel(@PathParam("channel") String channel) throws IOException {
+        AudioServer.getInstance().Stop();//call the stop method to reset the connection
+        HashMap stations = AudioServer.getInstance().getStations();//create a new hashmap with the keys of the stations with the values of the stream url
+        if(!AudioServer.getInstance().isConnected){//check if a client is not connected
+            AudioServer.getInstance().Connect();//call the connect method to start the server
+            try {
+                if (stations.containsKey(channel)) {//check if the entered channel exists in the hashmap
+                    //if the channel exists call the changeChannel method, with the streaming url of the channel in the hashmap as argument
+                    AudioServer.getInstance().ChangeChannel((String)stations.get(channel));}
+            } catch (Exception e) {
+                System.out.println(e);//channel does not exists.
+            }
+        }
+        return "server started";
     }
 
-
-    /*
-
-    */
+    /***
+     * method to stop the audioserver
+     * @throws IOException
+     */
     @Path("/radio/stop")
     @GET
     public void stopRadio() throws IOException {
-        server.Stop();
+        AudioServer.getInstance().Stop();//call the Stop method in order to stop the audio stream
+
     }
 }
