@@ -28,6 +28,8 @@ the socket is open on port 8093
 
 <b>in order to connect the client make sure you use the right ip addres and websocket ports!</b>
 
+to change the channel, make the same api request and reconnect the client
+
 # Client
 
 more information about the Audio Client: https://github.com/INF2A/Smart-mirror/blob/master/src/widgets/AudioClient.java
