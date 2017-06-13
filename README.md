@@ -2,7 +2,7 @@
 This api is made for project Cluster & SmartMirror, it is designed to run on a raspberry pi in a docker container. 
 This application will stream audio data to a connected client in order to play music. See the Audio Client for more info.
 The Api runs on a tomcat server in order to handle http requests and is used to start the stream. 
-in onder to send the actual audio data, websockets in both the server and client are used.
+in order to send the actual audio data, websockets in both the server and client are used.
 
 # Setup tomcat server
 
