@@ -30,7 +30,7 @@ the socket is open on port 8093
 
 # Client
 
-more information about the Audio Client: https://trololol.com
+more information about the Audio Client: https://github.com/INF2A/Smart-mirror/blob/master/src/widgets/AudioClient.java
 
 # Cluster
 
