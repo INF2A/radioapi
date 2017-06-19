@@ -36,7 +36,7 @@ public final class AudioServer {
      */
     private AudioServer() {
         try {
-            addr = InetAddress.getByName("127.0.0.1");//st the addr to local host
+            addr = InetAddress.getByName("0.0.0.0");//st the addr to local host
             setStations();//call the setStations method to fill the stations hashmap with available stations and their urls
         } catch (UnknownHostException e) {
             e.printStackTrace();
