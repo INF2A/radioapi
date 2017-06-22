@@ -18,7 +18,7 @@ http://localhost:8080/<br>
 
 <b>To start a music stream</b><br> 
 {ip_cluster}:{poort_api}/radio/play/{channel} <br>
-http://localhost:8080/radio/play/3fm<br>
+localhost:8083/radioapi/radio/stations<br>
 
 when the api call is made, it will start the server and wait for a connection. 
 So the client has to make sure to make this api call, and then connect to the server with the websocket
