@@ -9,13 +9,19 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: asm:asm:3.3.1" />
           <element id="library" level="project" name="Maven: com.sun.jersey:jersey-bundle:1.19" />
+          <element id="library" level="project" name="Maven: javax.ws.rs:jsr311-api:1.1.1" />
           <element id="library" level="project" name="Maven: org.json:json:20140107" />
           <element id="library" level="project" name="Maven: com.sun.jersey:jersey-server:1.19" />
           <element id="library" level="project" name="Maven: com.sun.jersey:jersey-core:1.19" />
-          <element id="library" level="project" name="Maven: javax.ws.rs:jsr311-api:1.1.1" />
-          <element id="library" level="project" name="Maven: javax.json:javax.json-api:1.0" />
-          <element id="library" level="project" name="Maven: com.googlecode.json-simple:json-simple:1.1" />
-          <element id="library" level="project" name="Maven: javazoom:jlayer:1.0.1" />
+          <element id="library" level="project" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.0.2" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:1.5.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:1.5.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.7.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
